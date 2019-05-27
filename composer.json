@@ -1,0 +1,16 @@
+{
+    "name": "moira/diver-city",
+    "authors": [
+        {
+            "name": "Moïra",
+            "email": "maelle.lescouarnec@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    }
+}
