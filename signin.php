@@ -1,14 +1,72 @@
 <?php
 
 $lastname = $firstname = $birthday = $email = $password = $passwordconfirm = $city = "";
+
+$lastnameError = $firstnameError = $birthdayError = $emailError = $passwordError = $passwordconfirmError = $cityError = "";
+
+
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  $lastname = $_POST["lastname"];
-  $firstname = $_POST["firstname"];
-  $birthday = $_POST["birthday"];
-  $email = $_POST["email"];
-  $password = $_POST["password"];
-  $passwordconfirm = $_POST["passwordconfirm"];
-  $city = $_POST["city"];
+  $lastname = verifyInput($_POST["lastname"]);
+  $firstname = verifyInput($_POST["firstname"]);
+  $birthday = verifyInput($_POST["birthday"]);
+  $email = verifyInput($_POST["email"]);
+  $password = verifyInput($_POST["password"]);
+  $passwordconfirm = verifyInput($_POST["passwordconfirm"]);
+  $city = verifyInput($_POST["city"]);
+
+    if(empty($lastname))
+    {
+      $lastnameError = "Veuillez renseigner votre nom.";
+    }
+
+    if(empty($firstname))
+    {
+      $firstnameError = "Veuillez renseigner votre prenom.";
+    }
+
+    if(empty($birthday))
+    {
+      $birthdayError = "Veuillez renseigner votre date de naissance.";
+    }
+
+    if(empty($email))
+    {
+      $emailError = "Veuillez renseigner votre adresse mail.";
+    }
+
+    if(empty($password))
+    {
+      $passwordError = "Veuillez renseigner votre mot de passe.";
+    }
+
+    if(empty($passwordconfirm))
+    {
+      $passwordconfirmError = "Veuillez confirmer votre mot de passe.";
+    }
+
+    if(empty($city))
+    {
+      $cityError = "Veuillez renseigner votre ville.";
+    }
+}
+
+function verifyInput ($var){
+
+  $var = trim($var); //permet de verfifier qu'il n'y ai pas d'espaces, TAB, le fait d'aller à la ligne 
+  $var = stripcslashes($var); // enleve tout les anti slash
+  $var = htmlspecialchars($var);// sercurisation de la faille XSS
+  $var = mysql_real_escape_string($_POST['lastname']); // empèche l'entrer de character spécifique SQL
+  $var = mysql_real_escape_string($_POST['firstname']); // empèche l'entrer de character spécifique SQL
+  $var = mysql_real_escape_string($_POST['birthday']); // empèche l'entrer de character spécifique SQL
+  $var = mysql_real_escape_string($_POST['email']); // empèche l'entrer de character spécifique SQL
+  $var = mysql_real_escape_string($_POST['password']); // empèche l'entrer de character spécifique SQL
+  $var = mysql_real_escape_string($_POST["passwordconfirm"]); // empèche l'entrer de character spécifique SQL
+  $var = mysql_real_escape_string($_POST["city"]); // empèche l'entrer de character spécifique SQL
+
+
+
+  return $var;
 }
 
 ?>
@@ -29,17 +87,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <a href="index.php"><img class="logo" src="src/assets/img/Logo.svg" alt="Logo Divercity"></a>
 
-<form class="infos" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+<form class="infos" method="post" action="<?php echo htmlspecialchars(  $_SERVER['PHP_SELF']); ?>"> 
     <h1 class="infos__title">S'INSCRIRE</h1>
     <input class="infos__user" type="text" name="lastname" placeholder="Nom*" value="<?php echo $lastname; ?>" required>
+    <p><?php echo $lastnameError; ?></p>
+
     <input class="infos__user" type="text" name="firstname" placeholder="Prénom*" value="<?php echo $firstname; ?>" required>
+    <p><?php echo $firstnameError; ?></p>
+
+
     <input class="infos__user" type="date" name="birthday" value="1990-01-01" value="<?php echo $birthday; ?>" required>
+    <p><?php echo $birthdayError; ?></p>
+
+
     <input class="infos__user" type="email" name="email" placeholder="Adresse mail*" value="<?php echo $email; ?>" required>
+    <p><?php echo $emailError; ?></p>
+
+
     <input class="infos__user" type="password" name="password" placeholder="Mot de passe*" value="<?php echo $password; ?>" required>
+    <p><?php echo $passwordError; ?></p>
+
+
     <input class="infos__user" type="password" name="passwordconfirm" placeholder="Confirmation mot de passe*" value="<?php echo $passwordconfirm; ?>" required>
+    <p><?php echo $passwordconfirmError; ?></p>
+
+
     <input class="infos__user" type="text" name="city" placeholder="Ville*" value="<?php echo $city; ?>" required>
+    <p><?php echo $cityError; ?></p>
+
+    
     <label for="Justificatif de domicile">Justificatif de domicile</label>
     <input class="infos__user" type="file" name="Justificatif de domicile" placeholder="Justificatif de domicile" required>
+
     <input class="infos__button" type="submit" value="ENVOYER">
 </form>
 
