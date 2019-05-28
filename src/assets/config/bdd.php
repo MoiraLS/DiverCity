@@ -19,6 +19,6 @@ try {
   // Les exceptions sont des erreurs 
   // présentées sous forme d'objet
 
-  // die est une instruction qui permet d'arrêter le script 
+  // die est une instruction qui permet d'arreter le script 
   die('Erreur de connexion à la base de données: ' . $e->getMessage()); 
 }
