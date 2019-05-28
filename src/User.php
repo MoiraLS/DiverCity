@@ -42,30 +42,43 @@ class User
     $this->firstname = $firstname;
   }
 
-
   public function getBirthday()
   {
-    $birthday = $_POST['birthday'];
+    return $this->birthday;
   }
-  public function getEmail()
+  public function setBirthday($birthday)
   {
-    $email = $_POST['email'];
-  }
-  public function getPassword()
-  {
-    $password = $_POST['password'];
-  }
-  public function getCity()
-  {
-    $city = $_POST['city'];
+    $this->birthday = $birthday;
   }
 
-  public function validate()
+  public function getEmail()
   {
-    //   $var = trim($var); //permet de verfifier qu'il n'y ai pas d'espaces, TAB, le fait d'aller à la ligne 
-    //   $var = stripcslashes($var); // enleve tout les anti slash
-    //   $var = htmlspecialchars($var); // sercurisation de la faille XSS
+    return $this->email;
   }
+  public function setEmail($email)
+  {
+    $this->email = $email;
+  }
+
+  public function getPassword()
+  {
+    return $this->password;
+  }
+  public function setPassword($password)
+  {
+    $this->password = $password;
+  }
+
+  public function getCity()
+  {
+    return $this->city;
+  }
+  public function setCity($city)
+  {
+    $this->city = $city;
+  }
+
+
 
   public function save()
   {
