@@ -4,6 +4,7 @@ namespace App;
 
 class User
 {
+  private $valid = false;
   private $id;
   private $lastname;
   private $firstname;
@@ -14,6 +15,7 @@ class User
 
   public function __construct($id, $lastname, $firstname, $birthday, $email, $password, $city)
   {
+    
     $this->id = $id;
     $this->lastname = $lastname;
     $this->firstname = $firstname;
