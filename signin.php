@@ -7,7 +7,8 @@ $lastnameError = $firstnameError = $birthdayError = $emailError = $passwordError
 
 
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST") 
+  {
   $lastname = verifyInput($_POST["lastname"]);
   $firstname = verifyInput($_POST["firstname"]);
   $birthday = verifyInput($_POST["birthday"]);
@@ -25,8 +26,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if(empty($birthday)) {
       $birthdayError = "Veuillez renseigner votre date de naissance.";
     }
+<<<<<<< HEAD
     if(empty($email)) {
       $emailError = "Veuillez renseigner votre adresse mail.";
+=======
+    if (!isEmail($email)) //si email est pas bon alors message d'erreur 
+    {
+      $emailError = "Veuiilez entrer votre adresse email";
+>>>>>>> b4aed52a0fa77eb185da08fe6caebb0e50cc88be
     }
     if(empty($password)) {
       $passwordError = "Veuillez renseigner votre mot de passe.";
@@ -38,11 +45,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $cityError = "Veuillez renseigner votre ville.";
     }
 }
+function isEmail ($var) // cela verifie l'email
+{
+  return filter_var($var, FILTER_VALIDATE_EMAIL);
+}
 
 function verifyInput($var) {
   $var = trim($var); //permet de verfifier qu'il n'y ai pas d'espaces, TAB, le fait d'aller à la ligne 
   $var = stripcslashes($var); // enleve tout les anti slash
+<<<<<<< HEAD
   $var = htmlspecialchars($var); // sercurisation de la faille XSS
+=======
+  $var = htmlspecialchars($var);// sercurisation de la faille XSS
+ 
+
+
+>>>>>>> b4aed52a0fa77eb185da08fe6caebb0e50cc88be
 
   return $var;
 }
