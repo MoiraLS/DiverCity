@@ -6,7 +6,8 @@ $lastnameError = $firstnameError = $birthdayError = $emailError = $passwordError
 
 
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST") 
+  {
   $lastname = verifyInput($_POST["lastname"]);
   $firstname = verifyInput($_POST["firstname"]);
   $birthday = verifyInput($_POST["birthday"]);
@@ -29,10 +30,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     {
       $birthdayError = "Veuillez renseigner votre date de naissance.";
     }
-
-    if(empty($email))
+    if (!isEmail($email)) //si email est pas bon alors message d'erreur 
     {
-      $emailError = "Veuillez renseigner votre adresse mail.";
+      $emailError = "Veuiilez entrer votre adresse email";
     }
 
     if(empty($password))
@@ -50,19 +50,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $cityError = "Veuillez renseigner votre ville.";
     }
 }
+function isEmail ($var) // cela verifie l'email
+{
+  return filter_var($var, FILTER_VALIDATE_EMAIL);
+}
 
 function verifyInput ($var){
 
   $var = trim($var); //permet de verfifier qu'il n'y ai pas d'espaces, TAB, le fait d'aller à la ligne 
   $var = stripcslashes($var); // enleve tout les anti slash
   $var = htmlspecialchars($var);// sercurisation de la faille XSS
-  $var = mysql_real_escape_string($_POST['lastname']); // empèche l'entrer de character spécifique SQL
-  $var = mysql_real_escape_string($_POST['firstname']); // empèche l'entrer de character spécifique SQL
-  $var = mysql_real_escape_string($_POST['birthday']); // empèche l'entrer de character spécifique SQL
-  $var = mysql_real_escape_string($_POST['email']); // empèche l'entrer de character spécifique SQL
-  $var = mysql_real_escape_string($_POST['password']); // empèche l'entrer de character spécifique SQL
-  $var = mysql_real_escape_string($_POST["passwordconfirm"]); // empèche l'entrer de character spécifique SQL
-  $var = mysql_real_escape_string($_POST["city"]); // empèche l'entrer de character spécifique SQL
+ 
 
 
 
