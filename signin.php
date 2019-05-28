@@ -1,3 +1,18 @@
+<?php
+
+$lastname = $firstname = $birthday = $email = $password = $passwordconfirm = $city = "";
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $lastname = $_POST["lastname"];
+  $firstname = $_POST["firstname"];
+  $birthday = $_POST["birthday"];
+  $email = $_POST["email"];
+  $password = $_POST["password"];
+  $passwordconfirm = $_POST["passwordconfirm"];
+  $city = $_POST["city"];
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -14,15 +29,15 @@
 
 <a href="index.php"><img class="logo" src="src/assets/img/Logo.svg" alt="Logo Divercity"></a>
 
-<form class="infos" action="">
+<form class="infos" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
     <h1 class="infos__title">S'INSCRIRE</h1>
-    <input class="infos__user" type="text" placeholder="Nom*" required>
-    <input class="infos__user" type="text" placeholder="Prénom*" required>
-    <input class="infos__user" type="date" value="1990-01-01" required>
-    <input class="infos__user" type="email" placeholder="Adresse mail*" required>
-    <input class="infos__user" type="password" placeholder="Mot de passe*" required>
-    <input class="infos__user" type="password" placeholder="Confirmation mot de passe*" required>
-    <input class="infos__user" type="text" placeholder="Ville*" required>
+    <input class="infos__user" type="text" name="lastname" placeholder="Nom*" value="<?php echo $lastname; ?>" required>
+    <input class="infos__user" type="text" name="firstname" placeholder="Prénom*" value="<?php echo $firstname; ?>" required>
+    <input class="infos__user" type="date" name="birthday" value="1990-01-01" value="<?php echo $birthday; ?>" required>
+    <input class="infos__user" type="email" name="email" placeholder="Adresse mail*" value="<?php echo $email; ?>" required>
+    <input class="infos__user" type="password" name="password" placeholder="Mot de passe*" value="<?php echo $password; ?>" required>
+    <input class="infos__user" type="password" name="passwordconfirm" placeholder="Confirmation mot de passe*" value="<?php echo $passwordconfirm; ?>" required>
+    <input class="infos__user" type="text" name="city" placeholder="Ville*" value="<?php echo $city; ?>" required>
     <label for="Justificatif de domicile">Justificatif de domicile</label>
     <input class="infos__user" type="file" name="Justificatif de domicile" placeholder="Justificatif de domicile" required>
     <input class="infos__button" type="submit" value="ENVOYER">
