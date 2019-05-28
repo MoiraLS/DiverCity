@@ -51,6 +51,7 @@ body {
   height: 2vh;
   font-size: 10px;
   color: red;
+  text-align: center;
 }
 
 .infos__button {

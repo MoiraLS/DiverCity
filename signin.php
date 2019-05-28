@@ -1,70 +1,56 @@
 <?php
 require __DIR__ . '/bootstrap.php';
 
-$lastname = $firstname = $birthday = $email = $password = $passwordconfirm = $city = "";
-
-$lastnameError = $firstnameError = $birthdayError = $emailError = $passwordError = $passwordconfirmError = $cityError = "";
-
-
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") 
-  {
-  $lastname = verifyInput($_POST["lastname"]);
-  $firstname = verifyInput($_POST["firstname"]);
-  $birthday = verifyInput($_POST["birthday"]);
-  $email = verifyInput($_POST["email"]);
-  $password = verifyInput($_POST["password"]);
-  $passwordconfirm = verifyInput($_POST["passwordconfirm"]);
-  $city = verifyInput($_POST["city"]);
-
-    if(empty($lastname)) {
-      $lastnameError = "Veuillez renseigner votre nom.";
-    }
-    if(empty($firstname)) {
-      $firstnameError = "Veuillez renseigner votre prénom.";
-    }
-    if(empty($birthday)) {
-      $birthdayError = "Veuillez renseigner votre date de naissance.";
-    }
-<<<<<<< HEAD
-    if(empty($email)) {
-      $emailError = "Veuillez renseigner votre adresse mail.";
-=======
-    if (!isEmail($email)) //si email est pas bon alors message d'erreur 
-    {
-      $emailError = "Veuiilez entrer votre adresse email";
->>>>>>> b4aed52a0fa77eb185da08fe6caebb0e50cc88be
-    }
-    if(empty($password)) {
-      $passwordError = "Veuillez renseigner votre mot de passe.";
-    }
-    if(empty($passwordconfirm)) {
-      $passwordconfirmError = "Veuillez confirmer votre mot de passe.";
-    }
-    if(empty($city)) {
-      $cityError = "Veuillez renseigner votre ville.";
-    }
-}
-function isEmail ($var) // cela verifie l'email
+if(isset($_POST['register']))
 {
-  return filter_var($var, FILTER_VALIDATE_EMAIL);
+  $user = new App\User;
+  $user->setLastname($_POST['lastname']);
+  $user->setFirstname($_POST['firstname']);
+
 }
+// $lastname = $firstname = $birthday = $email = $password = $passwordconfirm = $city = "";
 
-function verifyInput($var) {
-  $var = trim($var); //permet de verfifier qu'il n'y ai pas d'espaces, TAB, le fait d'aller à la ligne 
-  $var = stripcslashes($var); // enleve tout les anti slash
-<<<<<<< HEAD
-  $var = htmlspecialchars($var); // sercurisation de la faille XSS
-=======
-  $var = htmlspecialchars($var);// sercurisation de la faille XSS
- 
+// $lastnameError = $firstnameError = $birthdayError = $emailError = $passwordError = $passwordconfirmError = $cityError = "";
 
+// if ($_SERVER["REQUEST_METHOD"] == "POST") {
+//   $lastname = verifyInput($_POST["lastname"]);
+//   $firstname = verifyInput($_POST["firstname"]);
+//   $birthday = verifyInput($_POST["birthday"]);
+//   $email = verifyInput($_POST["email"]);
+//   $password = verifyInput($_POST["password"]);
+//   $passwordconfirm = verifyInput($_POST["passwordconfirm"]);
+//   $city = verifyInput($_POST["city"]);
 
->>>>>>> b4aed52a0fa77eb185da08fe6caebb0e50cc88be
+//     if(empty($lastname)) {
+//       $lastnameError = "Veuillez renseigner votre nom.";
+//     }
+//     if(empty($firstname)) {
+//       $firstnameError = "Veuillez renseigner votre prénom.";
+//     }
+//     if(empty($birthday)) {
+//       $birthdayError = "Veuillez renseigner votre date de naissance.";
+//     }
+//     if(empty($email)) {
+//       $emailError = "Veuillez renseigner votre adresse mail.";
+//     }
+//     if(empty($password)) {
+//       $passwordError = "Veuillez renseigner votre mot de passe.";
+//     }
+//     if(empty($passwordconfirm)) {
+//       $passwordconfirmError = "Veuillez confirmer votre mot de passe.";
+//     }
+//     if(empty($city)) {
+//       $cityError = "Veuillez renseigner votre ville.";
+//     }
+// }
 
-  return $var;
-}
+// function verifyInput($var) {
+//   $var = trim($var); //permet de verfifier qu'il n'y ai pas d'espaces, TAB, le fait d'aller à la ligne 
+//   $var = stripcslashes($var); // enleve tout les anti slash
+//   $var = htmlspecialchars($var); // sercurisation de la faille XSS
 
+//   return $var;
+// }
 
 ?>
 
@@ -87,7 +73,7 @@ function verifyInput($var) {
 <form class="infos" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>"> 
     <h1 class="infos__title">S'INSCRIRE</h1>
    
-    <input class="infos__user" type="text" name="lastname" placeholder="Nom*" value="<?php echo $lastname; ?>">
+    <input class="infos__user" type="text" name="lastname" placeholder="Nom*" value="<?php echo $lastname; ?>" required>
     <p class="error"><?php echo $lastnameError; ?></p>
 
     <input class="infos__user" type="text" name="firstname" placeholder="Prénom*" value="<?php echo $firstname; ?>" required>
@@ -117,7 +103,7 @@ function verifyInput($var) {
     <label for="Justificatif de domicile">Justificatif de domicile</label>
     <input class="infos__user" type="file" name="Justificatif de domicile" placeholder="Justificatif de domicile">
 
-    <input class="infos__button" type="submit" value="ENVOYER">
+    <input class="infos__button" type="submit" name="register" value="ENVOYER">
 </form>
 
 </body>

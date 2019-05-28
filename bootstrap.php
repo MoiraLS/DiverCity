@@ -5,4 +5,3 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 // Connexion à mySQL
 App\Database::connect();
-// App\Database::$pdo
