@@ -6,51 +6,12 @@ if(isset($_POST['register']))
   $user = new App\User;
   $user->setLastname($_POST['lastname']);
   $user->setFirstname($_POST['firstname']);
-
+  $user->setBirthday($_POST['birthday']);
+  $user->setEmail($_POST['email']);
+  $user->setPassword($_POST['password']);
+  $user->setCity($_POST['city']);
 }
-// $lastname = $firstname = $birthday = $email = $password = $passwordconfirm = $city = "";
 
-// $lastnameError = $firstnameError = $birthdayError = $emailError = $passwordError = $passwordconfirmError = $cityError = "";
-
-// if ($_SERVER["REQUEST_METHOD"] == "POST") {
-//   $lastname = verifyInput($_POST["lastname"]);
-//   $firstname = verifyInput($_POST["firstname"]);
-//   $birthday = verifyInput($_POST["birthday"]);
-//   $email = verifyInput($_POST["email"]);
-//   $password = verifyInput($_POST["password"]);
-//   $passwordconfirm = verifyInput($_POST["passwordconfirm"]);
-//   $city = verifyInput($_POST["city"]);
-
-//     if(empty($lastname)) {
-//       $lastnameError = "Veuillez renseigner votre nom.";
-//     }
-//     if(empty($firstname)) {
-//       $firstnameError = "Veuillez renseigner votre prénom.";
-//     }
-//     if(empty($birthday)) {
-//       $birthdayError = "Veuillez renseigner votre date de naissance.";
-//     }
-//     if(empty($email)) {
-//       $emailError = "Veuillez renseigner votre adresse mail.";
-//     }
-//     if(empty($password)) {
-//       $passwordError = "Veuillez renseigner votre mot de passe.";
-//     }
-//     if(empty($passwordconfirm)) {
-//       $passwordconfirmError = "Veuillez confirmer votre mot de passe.";
-//     }
-//     if(empty($city)) {
-//       $cityError = "Veuillez renseigner votre ville.";
-//     }
-// }
-
-// function verifyInput($var) {
-//   $var = trim($var); //permet de verfifier qu'il n'y ai pas d'espaces, TAB, le fait d'aller à la ligne 
-//   $var = stripcslashes($var); // enleve tout les anti slash
-//   $var = htmlspecialchars($var); // sercurisation de la faille XSS
-
-//   return $var;
-// }
 
 ?>
 
@@ -62,7 +23,7 @@ if(isset($_POST['register']))
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="src/assets/css/reset.css">
-  <link rel="stylesheet" href="src/assets/css/signin.css">
+  <link rel="stylesheet" href="src/assets/css/account.css">
   <title>DiverCity - Inscription</title>
 </head>
 
