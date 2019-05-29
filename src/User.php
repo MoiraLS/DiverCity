@@ -13,9 +13,9 @@ class User
   private $password;
   private $city;
 
-  public function __construct($id, $lastname, $firstname, $birthday, $email, $password, $city)
+  public function __construct($valid, $id, $lastname, $firstname, $birthday, $email, $password, $city)
   {
-    
+    $this->valid = $valid;
     $this->id = $id;
     $this->lastname = $lastname;
     $this->firstname = $firstname;
@@ -36,7 +36,6 @@ class User
       save();
     }
     $this->lastname = $lastname;
-
   }
 
   public function getFirstname()
@@ -64,6 +63,9 @@ class User
   public function setEmail($email)
   {
     $this->email = $email;
+    $email = trim($email);
+    $email = stripcslashes($email);
+    $email = htmlspecialchars($email);
   }
 
   public function getPassword()
@@ -73,6 +75,8 @@ class User
   public function setPassword($password)
   {
     $this->password = $password;
+    $password = password_hash($_POST['password'], PASSWORD_ARGON2ID);
+    // Insérer la vérification / hachage à verifier 
   }
 
   public function getCity()
@@ -88,7 +92,8 @@ class User
 
   public function save()
   {
-    if($valid = true) {
+    if($valid = true)
+    {
       $req = Database::$pdo->prepare('INSERT INTO user (lastname, firstname, birthday, email, password, city) VALUES (:lastname, :firstname, :birthday, :email, :password, :city)');
       $req->execute([
         'lastname' => $this->lastname,

@@ -30,7 +30,7 @@ require __DIR__ . '/bootstrap.php';
     <input class="header__search" type="search" placeholder="Rechercher">
 
     <div class="header__account">
-      <div class="account"><a class="account--login" href="#">Se connecter</a></div>
+      <div class="account"><a class="account--login" href="login.php">Se connecter</a></div>
       <div class="account account--creation"><a class="account--creation" href="signin.php">S'inscrire</a></div>
     </div>
   </header>
