@@ -12,6 +12,16 @@ require __DIR__ . '/bootstrap.php';
   <link rel="stylesheet" href="src/assets/css/reset.css">
   <link rel="stylesheet" href="src/assets/css/style.css">
   <title>DiverCity</title>
+ 
+  <!-- Framework css semantic UI-->
+  <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+  <script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+  <script src="semantic/dist/semantic.min.js"></script>
+  <!-- Framework css semantic UI-->
+
 </head>
 
 <body>
