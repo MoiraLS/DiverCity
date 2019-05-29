@@ -52,8 +52,8 @@ require __DIR__ . '/bootstrap.php';
     } else
     {
       ?>
-      <div class="account"><a class="account--login" href="login.php">Se connecter</a></div>
-      <div class="account account--creation"><a class="account--creation" href="signin.php">S'inscrire</a></div>
+      <div class="account"><a class="account--login" href="login.php">SE CONNECTER</a></div>
+      <div class="account account--creation"><a class="account--creation" href="signin.php">S'INSCRIRE</a></div>
     <?php
     }
     ?>
@@ -69,28 +69,36 @@ require __DIR__ . '/bootstrap.php';
   <?php
   }
   ?>
-  
-  <div class="breadcrumb">
-    <ul class="breadcrumb__item item">
-      <li class="item item--opacity"><a href="#">Accueil</a></li>
-      <li class="item item--space"><a href="#">Actualités</a></li>
-    </ul>
-  </div>
 
   <!--    MAIN    -->
   <main class="main">
 
-    <img class="main__map" src="src/assets/img/map.jpg" alt="Carte">
+    <div class="map">
+      <img class="map_img" src="src/assets/img/map.jpg" alt="Carte">
+    </div>
 
-    <form class="main__actualites actualites" action="traitementFormulaire.php">
-      <textarea class="actualites__area" placeholder="Dîtes quelque chose..." required></textarea>
-      <input class="actualites__button" type="submit" name="Poster" value="Poster">
-    </form>
-
+    <div class="actu">
+      <form class="main__actualites actualites" action="poster.php" method="post">
+        <textarea class="actualites__area" name="content" placeholder="Dîtes quelque chose..." required></textarea>
+        <input class="actualites__button" type="submit" name="poster" value="POSTER">
+      </form>
+      <?php $allPublication = App\Database::getAllPublication();
+      foreach ($allPublication as $Publication):
+      ?>
+      <div class="all__publication">
+        <div class="publication">
+          <p class="name"><?= $Publication->getUser()->getFirstname() ?> <?= $Publication->getUser()->getLastname() ?></p>
+          <div class="contenu"><?= $Publication->getContent(); ?></div>
+          <p class="date"><?= $Publication->getDate(); ?></p>
+        </div>
+      </div>
+      <?php endforeach; ?>
+    </div>
+  
     <div class="pubs">
-      <img class="pub" src="src/assets/img/pub1.jpg" alt="Pub">
-      <img class="pub" src="src/assets/img/pub2.jpg" alt="Pub">
-      <img class="pub" src="src/assets/img/pub3.jpg" alt="Pub">
+      <img class="pub" src="src/assets/img/pub1.png" alt="Pub">
+      <img class="pub pub--center" src="src/assets/img/pub2.png" alt="Pub">
+      <img class="pub" src="src/assets/img/pub3.png" alt="Pub">
     </div>
 
   </main>

@@ -34,4 +34,20 @@ class Database
       die('Erreur de connexion à la base de données: ' . $e->getMessage()); 
     }
   }
+
+  public static function getAllPublication()
+  {
+    $stmt = self::$pdo->query("SELECT * FROM publication order by id desc;");
+    $allPublicationSQL = $stmt->fetchAll();
+    $allPublication = [];
+    foreach ($allPublicationSQL as $value) {
+      $publication = new Publication;
+      $publication->setId($value['id']);
+      $publication->setContent($value['content']);
+      $publication->setUser_id($value['author']);
+      $publication->setDate($value['date']);
+      array_push($allPublication, $publication);
+    }
+    return $allPublication;
+  }
 }
