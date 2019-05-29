@@ -37,6 +37,17 @@ body {
   margin: auto;
 }
 
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30vw;
+  height: 35vh;
+  background-color: #74AE5A;
+  transform: translateY(22.5vh);
+  margin: auto;
+}
+
 .infos__user {
   width: 60%;
   height: 5vh;

@@ -31,10 +31,6 @@ class User
   }
   public function setLastname($lastname)
   {
-    if($valid = true)
-    {
-      save();
-    }
     $this->lastname = $lastname;
   }
 
@@ -75,8 +71,8 @@ class User
   public function setPassword($password)
   {
     $this->password = $password;
-    $password = password_hash($_POST['password'], PASSWORD_ARGON2ID);
-    // Insérer la vérification / hachage à verifier 
+    $password = password_hash();
+    // Insérer la vérification / hachage
   }
 
   public function getCity()
@@ -103,8 +99,6 @@ class User
         'password' => $this->password,
         'city' => $this->city,
       ]);
-    } else {
-      return;
     }
   }
 }

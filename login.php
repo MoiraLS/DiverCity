@@ -1,3 +1,16 @@
+<?php
+require __DIR__ . '/bootstrap.php';
+
+if(isset($_POST['login']))
+{
+  $user = new App\User;
+  $user->setEmail($_POST['email']);
+  $user->setPassword($_POST['password']);
+  $log->setFetchMode(PDO::FETCH_CLASS, 'User');
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -14,7 +27,7 @@
 
 <a href="index.php"><img class="logo" src="src/assets/img/Logo.svg" alt="Logo Divercity"></a>
 
-<form class="infos" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>"> 
+<form class="login" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>"> 
     <h1 class="infos__title">SE CONNECTER</h1>
 
     <input class="infos__user" type="email" name="email" placeholder="Adresse mail*" value="<?php echo $email; ?>" required>
@@ -23,7 +36,7 @@
     <input class="infos__user" type="password" name="password" placeholder="Mot de passe*" value="<?php echo $password; ?>" required>
     <p class="error"><?php echo $passwordError; ?></p>
 
-    <input class="infos__button" type="submit" name="register" value="CONNEXION">
+    <input class="infos__button" type="submit" name="login" value="CONNEXION">
 </form>
 
 </body>

@@ -12,7 +12,6 @@ if(isset($_POST['register']))
   $user->setCity($_POST['city']);
 }
 
-
 ?>
 
 <!DOCTYPE html>
