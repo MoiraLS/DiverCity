@@ -71,7 +71,7 @@ class User
   public function setPassword($password)
   {
     $this->password = $password;
-    $password = password_hash();
+    $password = password_hash($password, PASSWORD_DEFAULT);
   }
 
   public function getCity()
