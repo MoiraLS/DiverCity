@@ -1,6 +1,5 @@
 # DiverCity
 
-## Projet de semaine intensive de php
 ## Projet de semaine intensive de php Groupe 3
 
 Membres :
