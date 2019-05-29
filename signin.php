@@ -34,30 +34,23 @@ if(isset($_POST['register']))
     <h1 class="infos__title">S'INSCRIRE</h1>
    
     <input class="infos__user" type="text" name="lastname" placeholder="Nom*" value="<?php echo $lastname; ?>" required>
-    <p class="error"><?php echo $lastnameError; ?></p>
 
     <input class="infos__user" type="text" name="firstname" placeholder="Prénom*" value="<?php echo $firstname; ?>" required>
-    <p class="error"><?php echo $firstnameError; ?></p>
 
 
     <input class="infos__user" type="date" name="birthday" value="1990-01-01" value="<?php echo $birthday; ?>" required>
-    <p class="error"><?php echo $birthdayError; ?></p>
 
 
     <input class="infos__user" type="email" name="email" placeholder="Adresse mail*" value="<?php echo $email; ?>" required>
-    <p class="error"><?php echo $emailError; ?></p>
 
 
     <input class="infos__user" type="password" name="password" placeholder="Mot de passe*" value="<?php echo $password; ?>" required>
-    <p class="error"><?php echo $passwordError; ?></p>
 
 
     <input class="infos__user" type="password" name="passwordconfirm" placeholder="Confirmation mot de passe*" value="<?php echo $passwordconfirm; ?>" required>
-    <p class="error"><?php echo $passwordconfirmError; ?></p>
 
 
     <input class="infos__user" type="text" name="city" placeholder="Ville*" value="<?php echo $city; ?>" required>
-    <p class="error"><?php echo $cityError; ?></p>
 
     
     <label for="Justificatif de domicile">Justificatif de domicile</label>

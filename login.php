@@ -31,10 +31,8 @@ if(isset($_POST['login']))
     <h1 class="infos__title">SE CONNECTER</h1>
 
     <input class="infos__user" type="email" name="email" placeholder="Adresse mail*" value="<?php echo $email; ?>" required>
-    <p class="error"><?php echo $emailError; ?></p>
 
     <input class="infos__user" type="password" name="password" placeholder="Mot de passe*" value="<?php echo $password; ?>" required>
-    <p class="error"><?php echo $passwordError; ?></p>
 
     <input class="infos__button" type="submit" name="login" value="CONNEXION">
 </form>

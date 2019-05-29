@@ -72,7 +72,6 @@ class User
   {
     $this->password = $password;
     $password = password_hash();
-    // Insérer la vérification / hachage
   }
 
   public function getCity()
