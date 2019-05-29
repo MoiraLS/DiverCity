@@ -31,6 +31,10 @@ class User
   }
   public function setLastname($lastname)
   {
+    if($valid = true)
+    {
+      save();
+    }
     $this->lastname = $lastname;
 
   }
@@ -84,14 +88,18 @@ class User
 
   public function save()
   {
-    $req = Database::$pdo->prepare('INSERT INTO user (lastname, firstname, birthday, email, password, city) VALUES (:lastname, :firstname, :birthday, :email, :password, :city)');
-    $req->execute([
-      'lastname' => $this->lastname,
-      'firstname' => $this->firstname,
-      'birthday' => $this->birthday,
-      'email' => $this->email,
-      'password' => $this->password,
-      'city' => $this->city,
-    ]);
+    if($valid = true) {
+      $req = Database::$pdo->prepare('INSERT INTO user (lastname, firstname, birthday, email, password, city) VALUES (:lastname, :firstname, :birthday, :email, :password, :city)');
+      $req->execute([
+        'lastname' => $this->lastname,
+        'firstname' => $this->firstname,
+        'birthday' => $this->birthday,
+        'email' => $this->email,
+        'password' => $this->password,
+        'city' => $this->city,
+      ]);
+    } else {
+      return;
+    }
   }
 }
