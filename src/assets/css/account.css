@@ -27,6 +27,13 @@ body {
   letter-spacing: 2px;
 }
 
+.alert {
+  font-family: 'Helvetica Light';
+  font-size: 12px;
+  color: red;
+  text-align: center;
+}
+
 .infos {
   display: flex;
   flex-direction: column;

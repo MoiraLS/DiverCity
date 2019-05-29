@@ -2,37 +2,39 @@
 
 require_once __DIR__ . '/bootstrap.php';
 
-if($_POST['lastname'] != NULL)
+if(!isset($_POST['lastname']))
 {
-  
-}
-
-if($_POST['firstname'] != NULL)
+  $alert = 'Veuillez renseigner votre nom';
+  header('Location: signin.php?alert=' . $alert);
+  exit();
+} elseif(!isset($_POST['firstname']))
 {
-  
-}
-
-if($_POST['birthday'] != NULL)
+  $alert = 'Veuillez renseigner votre prénom';
+  header('Location: signin.php?alert=' . $alert);
+  exit();
+} elseif(!isset($_POST['birthday']))
 {
-  
-}
-
-if($_POST['email'] != NULL)
+  $alert = 'Veuillez renseigner votre date de naissance';
+  header('Location: signin.php?alert=' . $alert);
+  exit();
+} elseif(!isset($_POST['email']))
 {
-  
-}
-
-if($_POST['password'] != NULL)
+  $alert = 'Veuillez renseigner votre email';
+  header('Location: signin.php?alert=' . $alert);
+  exit();
+} elseif(!isset($_POST['password']))
 {
-  
-}
-
-if($_POST['passwordconfirm'] != NULL)
+  $alert = 'Veuillez renseigner votre mot de passe';
+  header('Location: signin.php?alert=' . $alert);
+  exit();
+} elseif(!isset($_POST['passwordconfirm']))
 {
-  
-}
-
-if($_POST['city'] != NULL)
+  $alert = 'Veuillez confirmer votre mot de passe';
+  header('Location: signin.php?alert=' . $alert);
+  exit();
+} elseif(!isset($_POST['city']))
 {
-  
+  $alert = 'Veuillez renseigner votre ville';
+  header('Location: signin.php?alert=' . $alert);
+  exit();
 }

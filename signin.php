@@ -35,24 +35,73 @@ if(isset($_POST['register']))
     <h1 class="infos__title">S'INSCRIRE</h1>
    
     <input class="infos__user" type="text" name="lastname" placeholder="Nom*" value="<?php echo $_POST['lastname'] ?? ''; ?>" required>
-
+    <?php 
+    if (isset($_GET['alert']))
+    {
+    ?>
+    <p class="alert"><?php echo $_GET['alert']; ?></p>
+    <?php
+    }
+    ?>
     <input class="infos__user" type="text" name="firstname" placeholder="Prénom*" value="<?php echo $_POST['firstname'] ?? ''; ?>" required>
-
+    <?php 
+    if (isset($_GET['alert']))
+    {
+    ?>
+    <p class="alert"><?php echo $_GET['alert']; ?></p>
+    <?php
+    }
+    ?>
 
     <input class="infos__user" type="text" name="birthday" value="1990-01-01" value="<?php echo $_POST['birthday'] ?? ''; ?>" required>
-
+    <?php 
+    if (isset($_GET['alert']))
+    {
+    ?>
+    <p class="alert"><?php echo $_GET['alert']; ?></p>
+    <?php
+    }
+    ?>
 
     <input class="infos__user" type="email" name="email" placeholder="Adresse mail*" value="<?php echo $_POST['email'] ?? ''; ?>" required>
-
+    <?php 
+    if (isset($_GET['alert']))
+    {
+    ?>
+    <p class="alert"><?php echo $_GET['alert']; ?></p>
+    <?php
+    }
+    ?>
 
     <input class="infos__user" type="password" name="password" placeholder="Mot de passe*" required>
-
+    <?php 
+    if (isset($_GET['alert']))
+    {
+    ?>
+    <p class="alert"><?php echo $_GET['alert']; ?></p>
+    <?php
+    }
+    ?>
 
     <input class="infos__user" type="password" name="passwordconfirm" placeholder="Confirmation mot de passe*" required>
-
+    <?php 
+    if (isset($_GET['alert']))
+    {
+    ?>
+    <p class="alert"><?php echo $_GET['alert']; ?></p>
+    <?php
+    }
+    ?>
 
     <input class="infos__user" type="text" name="city" placeholder="Ville*" value="<?php echo $_POST['city'] ?? ''; ?>" required>
-
+    <?php 
+    if (isset($_GET['alert']))
+    {
+    ?>
+    <p class="alert"><?php echo $_GET['alert']; ?></p>
+    <?php
+    }
+    ?>
     
     <label for="Justificatif de domicile">Justificatif de domicile</label>
     <input class="infos__user" type="file" name="Justificatif de domicile" placeholder="Justificatif de domicile">
