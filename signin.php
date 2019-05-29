@@ -39,7 +39,7 @@ if(isset($_POST['register']))
     <input class="infos__user" type="text" name="firstname" placeholder="Prénom*" value="<?php echo $_POST['firstname'] ?? ''; ?>" required>
 
 
-    <input class="infos__user" type="date" name="birthday" value="1990-01-01" value="<?php echo $_POST['birthday'] ?? ''; ?>" required>
+    <input class="infos__user" type="text" name="birthday" value="1990-01-01" value="<?php echo $_POST['birthday'] ?? ''; ?>" required>
 
 
     <input class="infos__user" type="email" name="email" placeholder="Adresse mail*" value="<?php echo $_POST['email'] ?? ''; ?>" required>

@@ -29,8 +29,16 @@ if(isset($_POST['login']))
 <body>
 
 <a href="index.php"><img class="logo" src="src/assets/img/Logo.svg" alt="Logo Divercity"></a>
+<?php 
+if (isset($_GET['alert']))
+{
+?>
+<p><?php echo $_GET['alert']; ?></p>
+<?php
+}
+?>
 
-<form class="login" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>"> 
+<form class="login" method="post" action="connexion.php"> 
     <h1 class="infos__title">SE CONNECTER</h1>
 
     <input class="infos__user" type="email" name="email" placeholder="Adresse mail*" value="<?php echo $_POST['email'] ?? ''; ?>" required>

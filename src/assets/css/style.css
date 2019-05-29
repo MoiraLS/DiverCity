@@ -80,6 +80,19 @@ body {
   left: 12.3vw;
 }
 
+/*    ALERT   */
+.alert {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 5vh;
+  background-color: #74AE5A;
+  color: white;
+  font-family: 'Helvetica';
+  font-size: 12px;
+}
+
 /*    BREADCRUMB    */
 .breadcrumb {
   position: absolute;

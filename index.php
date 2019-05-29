@@ -30,11 +30,36 @@ require __DIR__ . '/bootstrap.php';
     <input class="header__search" type="search" placeholder="Rechercher">
 
     <div class="header__account">
+    <?php
+    if(isset($_SESSION['user']))
+    {
+      ?>
+      <p><?php echo $_SESSION['user']->getFirstname(); ?></p>
+      <form method='post' action="Deconnecter.php">
+        <input type="submit" name="deconnecter" value='Déconnecter'>
+      </form>
+      <?php
+    } else
+    {
+      ?>
       <div class="account"><a class="account--login" href="login.php">Se connecter</a></div>
       <div class="account account--creation"><a class="account--creation" href="signin.php">S'inscrire</a></div>
+    <?php
+    }
+    ?>
+
     </div>
   </header>
 
+  <?php
+  if(isset($_GET['alert']))
+  {
+    ?>
+    <div class="alert"><p><?php echo $_GET['alert'] ?></p></div>
+  <?php
+  }
+  ?>
+  
   <div class="breadcrumb">
     <ul class="breadcrumb__item item">
       <li class="item item--opacity"><a href="#">Accueil</a></li>
