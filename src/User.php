@@ -4,7 +4,7 @@ namespace App;
 
 class User
 {
-  private $valid = false;
+  private $valid = true;
   private $id;
   private $lastname;
   private $firstname;
@@ -13,16 +13,9 @@ class User
   private $password;
   private $city;
 
-  public function __construct($valid, $id, $lastname, $firstname, $birthday, $email, $password, $city)
+  public function getId()
   {
-    $this->valid = $valid;
-    $this->id = $id;
-    $this->lastname = $lastname;
-    $this->firstname = $firstname;
-    $this->birthday = $birthday;
-    $this->email = $email;
-    $this->password = $password;
-    $this->city = $city;
+    return $this->id;
   }
 
   public function getLastname()
@@ -58,10 +51,12 @@ class User
   }
   public function setEmail($email)
   {
-    $this->email = $email;
     $email = trim($email);
-    $email = stripcslashes($email);
-    $email = htmlspecialchars($email);
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+      $this->valid = false;
+      return;
+    }
+    $this->email = $email;
   }
 
   public function getPassword()
@@ -70,8 +65,8 @@ class User
   }
   public function setPassword($password)
   {
-    $this->password = $password;
     $password = password_hash($password, PASSWORD_DEFAULT);
+    $this->password = $password;
   }
 
   public function getCity()
@@ -87,7 +82,7 @@ class User
 
   public function save()
   {
-    if($valid = true)
+    if($this->valid)
     {
       $req = Database::$pdo->prepare('INSERT INTO user (lastname, firstname, birthday, email, password, city) VALUES (:lastname, :firstname, :birthday, :email, :password, :city)');
       $req->execute([

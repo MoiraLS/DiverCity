@@ -3,10 +3,13 @@ require __DIR__ . '/bootstrap.php';
 
 if(isset($_POST['login']))
 {
-  $user = new App\User;
-  $user->setEmail($_POST['email']);
-  $user->setPassword($_POST['password']);
-  $log->setFetchMode(PDO::FETCH_CLASS, 'User');
+  $user = App\UserRepository::getUserByEmail($_POST['email']);
+  if ($user !== false) {
+    if (password_verify($_POST['password'], $user->getPassword())) {
+      $_SESSION['user_id'] = $user->getId();
+      header('Location: index.php');
+    }
+  }
 }
 
 ?>
@@ -30,9 +33,9 @@ if(isset($_POST['login']))
 <form class="login" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>"> 
     <h1 class="infos__title">SE CONNECTER</h1>
 
-    <input class="infos__user" type="email" name="email" placeholder="Adresse mail*" value="<?php echo $email; ?>" required>
+    <input class="infos__user" type="email" name="email" placeholder="Adresse mail*" value="<?php echo $_POST['email'] ?? ''; ?>" required>
 
-    <input class="infos__user" type="password" name="password" placeholder="Mot de passe*" value="<?php echo $password; ?>" required>
+    <input class="infos__user" type="password" name="password" placeholder="Mot de passe*" required>
 
     <input class="infos__button" type="submit" name="login" value="CONNEXION">
 </form>

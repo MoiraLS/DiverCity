@@ -10,6 +10,7 @@ if(isset($_POST['register']))
   $user->setEmail($_POST['email']);
   $user->setPassword($_POST['password']);
   $user->setCity($_POST['city']);
+  $user->save();
 }
 
 ?>
@@ -33,24 +34,24 @@ if(isset($_POST['register']))
 <form class="infos" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>"> 
     <h1 class="infos__title">S'INSCRIRE</h1>
    
-    <input class="infos__user" type="text" name="lastname" placeholder="Nom*" value="<?php echo $lastname; ?>" required>
+    <input class="infos__user" type="text" name="lastname" placeholder="Nom*" value="<?php echo $_POST['lastname'] ?? ''; ?>" required>
 
-    <input class="infos__user" type="text" name="firstname" placeholder="Prénom*" value="<?php echo $firstname; ?>" required>
-
-
-    <input class="infos__user" type="date" name="birthday" value="1990-01-01" value="<?php echo $birthday; ?>" required>
+    <input class="infos__user" type="text" name="firstname" placeholder="Prénom*" value="<?php echo $_POST['firstname'] ?? ''; ?>" required>
 
 
-    <input class="infos__user" type="email" name="email" placeholder="Adresse mail*" value="<?php echo $email; ?>" required>
+    <input class="infos__user" type="date" name="birthday" value="1990-01-01" value="<?php echo $_POST['birthday'] ?? ''; ?>" required>
 
 
-    <input class="infos__user" type="password" name="password" placeholder="Mot de passe*" value="<?php echo $password; ?>" required>
+    <input class="infos__user" type="email" name="email" placeholder="Adresse mail*" value="<?php echo $_POST['email'] ?? ''; ?>" required>
 
 
-    <input class="infos__user" type="password" name="passwordconfirm" placeholder="Confirmation mot de passe*" value="<?php echo $passwordconfirm; ?>" required>
+    <input class="infos__user" type="password" name="password" placeholder="Mot de passe*" required>
 
 
-    <input class="infos__user" type="text" name="city" placeholder="Ville*" value="<?php echo $city; ?>" required>
+    <input class="infos__user" type="password" name="passwordconfirm" placeholder="Confirmation mot de passe*" required>
+
+
+    <input class="infos__user" type="text" name="city" placeholder="Ville*" value="<?php echo $_POST['city'] ?? ''; ?>" required>
 
     
     <label for="Justificatif de domicile">Justificatif de domicile</label>
