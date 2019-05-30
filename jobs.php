@@ -23,8 +23,8 @@ require __DIR__ . '/bootstrap.php';
 
     <ul class="header__menu menu">
       <li class="menu__item"><a href="actualites.php">ACTUALITÉS</a></li>
-      <li class="menu__item"><a class="item--selected" href="evenements.php">ÉVÈNEMENTS</a></li>
-      <li class="menu__item"><a href="jobs.php">JOBS</a></li>
+      <li class="menu__item"><a href="evenements.php">ÉVÈNEMENTS</a></li>
+      <li class="menu__item"><a class="item--selected" href="jobs.php">JOBS</a></li>
       <li class="menu__item"><a href="#">CONTACT</a></li>
     </ul>
 
@@ -58,18 +58,18 @@ require __DIR__ . '/bootstrap.php';
       <img class="map_img" src="src/assets/img/map.jpg" alt="Carte">
     </div>
 
-    <div class="event">
-      <form class="main__evenements evenements" action="posterEvenement.php" method="post">
-        <textarea class="evenements__area" name="content" placeholder="Organisez un évènement..." required></textarea>
-        <input class="evenements__button" type="submit" name="poster" value="POSTER">
+    <div class="job__form">
+      <form class="main__jobs jobs" action="posterJobs.php" method="post">
+        <textarea class="jobs__area" name="content" placeholder="Proposez un job..." required></textarea>
+        <input class="jobs__button" type="submit" name="poster" value="POSTER">
       </form>
-      <?php $allEvenement = App\Database::getAllEvenement();
-            foreach ($allEvenement as $evenement): ?>
-      <div class="all__evenement">
-        <div class="evenement">
-          <p class="name"><?= $evenement->getUser()->getFirstname() ?> <?= $evenement->getUser()->getLastname() ?></p>
-          <div class="contenu"><?= $evenement->getContent(); ?></div>
-          <p class="date"><?= $evenement->getDate(); ?></p>
+      <?php $allJob = App\Database::getAllJob();
+            foreach ($allJob as $job): ?>
+      <div class="all__job">
+        <div class="job">
+          <p class="name"><?= $job->getUser()->getFirstname() ?> <?= $job->getUser()->getLastname() ?></p>
+          <div class="contenu"><?= $job->getContent(); ?></div>
+          <p class="date"><?= $job->getDate(); ?></p>
         </div>
       </div>
       <?php endforeach; ?>

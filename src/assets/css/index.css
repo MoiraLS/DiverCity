@@ -51,7 +51,9 @@
 
 .title {
   font-family: 'Helvetica', sans-serif;
+  font-size: 40px;
   color: #74AE5A;
+  transform: translateY(90%);
 }
 
 .buttons {
@@ -73,6 +75,7 @@
   font-size: 22px;
   border: 2px solid #74AE5A;
   border-radius: 90px;
+  cursor: pointer;
 }
 
 .inscription {
@@ -86,9 +89,11 @@
   font-size: 22px;
   background-color: #74AE5A;
   border-radius: 90px;
+  cursor: pointer;
 }
 
 .accroche {
+  display: block;
   position: absolute;
   top: 10vh;
   right: 8vw;
@@ -96,6 +101,7 @@
   font-size: 28px;
   color: #74AE5A;
   text-align: center;
+  line-height: 45px;
 }
 
 .buildings {
@@ -113,10 +119,18 @@
 }
 
 .alert {
-  font-family: 'Helvetica Light';
+  font-family: 'Helvetica', sans-serif;
   font-size: 12px;
   color: red;
   text-align: center;
+}
+
+.alert--connexion {
+  position: absolute;
+  top: 50%;
+  right: 25%;
+  transform: translate(-50% -50%);
+  font-size: 18px;
 }
 
 .none {
@@ -172,6 +186,7 @@
   border: none;
   border-radius: 30px;
   margin-bottom: 1vh;
+  cursor: pointer;
 }
 
 .infos label {

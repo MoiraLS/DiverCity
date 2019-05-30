@@ -52,7 +52,7 @@ if(isset($_POST['login']))
     </div>
   </div>
 
-  <p class="accroche">Rejoignez nous et découvrez tout<br>ce qui se passe dans votre ville !</p>
+  <p id="accroche" class="accroche">Rejoignez nous et découvrez tout<br>ce qui se passe dans votre ville !</p>
   <img class="buildings" src="src/assets/img/buildings.png" alt="Buildings">
 
   <form id="formInscription" class="none" method="post"
@@ -61,93 +61,53 @@ if(isset($_POST['login']))
 
     <input class="infos__user" type="text" name="lastname" placeholder="Nom*"
       value="<?php echo $_POST['lastname'] ?? ''; ?>" required>
-    <?php 
-    if (isset($_GET['alert']))
-    {
-    ?>
+    <?php if (isset($_GET['alert'])): ?>
     <p class="alert"><?php echo $_GET['alert']; ?></p>
-    <?php
-    }
-    ?>
+    <?php endif; ?>
     <input class="infos__user" type="text" name="firstname" placeholder="Prénom*"
       value="<?php echo $_POST['firstname'] ?? ''; ?>" required>
-    <?php 
-    if (isset($_GET['alert']))
-    {
-    ?>
+    <?php if (isset($_GET['alert'])): ?>
     <p class="alert"><?php echo $_GET['alert']; ?></p>
-    <?php
-    }
-    ?>
+    <?php endif; ?>
 
     <input class="infos__user" type="text" name="birthday" value="1990-01-01"
       value="<?php echo $_POST['birthday'] ?? ''; ?>" required>
-    <?php 
-    if (isset($_GET['alert']))
-    {
-    ?>
+    <?php if (isset($_GET['alert'])): ?>
     <p class="alert"><?php echo $_GET['alert']; ?></p>
-    <?php
-    }
-    ?>
+    <?php endif; ?>
 
     <input class="infos__user" type="email" name="email" placeholder="Adresse mail*"
       value="<?php echo $_POST['email'] ?? ''; ?>" required>
-    <?php 
-    if (isset($_GET['alert']))
-    {
-    ?>
+    <?php if (isset($_GET['alert'])): ?>
     <p class="alert"><?php echo $_GET['alert']; ?></p>
-    <?php
-    }
-    ?>
+    <?php endif; ?>
 
     <input class="infos__user" type="password" name="password" placeholder="Mot de passe*" required>
-    <?php 
-    if (isset($_GET['alert']))
-    {
-    ?>
+    <?php if (isset($_GET['alert'])): ?>
     <p class="alert"><?php echo $_GET['alert']; ?></p>
-    <?php
-    }
-    ?>
+    <?php endif; ?>
 
     <input class="infos__user" type="password" name="passwordconfirm" placeholder="Confirmation mot de passe*" required>
-    <?php 
-    if (isset($_GET['alert']))
-    {
-    ?>
+    <?php if (isset($_GET['alert'])): ?>
     <p class="alert"><?php echo $_GET['alert']; ?></p>
-    <?php
-    }
-    ?>
+    <?php endif; ?>
 
     <input class="infos__user" type="text" name="city" placeholder="Ville*" value="<?php echo $_POST['city'] ?? ''; ?>"
       required>
-    <?php 
-    if (isset($_GET['alert']))
-    {
-    ?>
+    <?php if (isset($_GET['alert'])): ?>
     <p class="alert"><?php echo $_GET['alert']; ?></p>
-    <?php
-    }
-    ?>
+    <?php endif; ?>
 
     <label for="Justificatif de domicile">Justificatif de domicile</label>
     <input class="infos__user" type="file" name="Justificatif de domicile" placeholder="Justificatif de domicile">
 
     <input class="infos__button" type="submit" name="register" value="ENVOYER">
   </form>
-  <!--    FIN FORM INSCRIPTION -->
+  <!--    END FORM INSCRIPTION -->
 
-  <?php 
-  if (isset($_GET['alert']))
-  {
-  ?>
-  <p><?php echo $_GET['alert']; ?></p>
-  <?php
-  }
-  ?>
+  <?php if (isset($_GET['alert'])): ?>
+  <p class="alert alert--connexion"><?php echo $_GET['alert']; ?></p>
+  <?php endif; ?>
 
   <form id="formConnexion" class="none" method="post" action="connexion.php">
     <h1 class="infos__title">CONNEXION</h1>
@@ -159,7 +119,7 @@ if(isset($_POST['login']))
 
     <input class="infos__button" type="submit" name="login" value="CONNEXION">
   </form>
-  <!--    FIN FORM CONNEXION    -->
+  <!--    END FORM CONNEXION    -->
 
 </body>
 
