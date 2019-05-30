@@ -12,18 +12,18 @@ if($_POST['email'] != NULL && $_POST['password'] != NULL)
   if ($correctPassword)
   {
     $_SESSION['user'] = $user;
-    $alert = 'Vous êtes bien connecté';
+    $alert = 'Vous êtes bien connecté !';
     header('Location: actualites.php?alert=' . $alert);
     exit();
   } else 
   {
-    $alert = 'Mot de passe incorrect';
+    $alert = 'Mot de passe incorrect.';
     header('Location: index.php?alert=' . $alert);
     exit();
   } 
 } else
 {
-  $alert = 'Remplissez les champs';
+  $alert = 'Remplissez les champs.';
   header('Location: index.php?alert=' . $alert);
   exit();
 }

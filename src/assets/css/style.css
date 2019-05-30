@@ -46,6 +46,10 @@ body {
   font-size: 12px;
 }
 
+.menu .item--selected {
+  color: #74AE5A;
+}
+
 .header__search {
   width: 200px;
 }

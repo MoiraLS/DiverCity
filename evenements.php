@@ -22,8 +22,8 @@ require __DIR__ . '/bootstrap.php';
     <img class="header__logo" src="src/assets/img/Logo.svg" alt="Logo DiverCity">
 
     <ul class="header__menu menu">
-      <li class="menu__item item--selected"><a href="actualites.php">ACTUALITÉS</a></li>
-      <li class="menu__item"><a href="evenements.php">ÉVÈNEMENTS</a></li>
+      <li class="menu__item"><a href="actualites.php">ACTUALITÉS</a></li>
+      <li class="menu__item item--selected"><a href="evenements.php">ÉVÈNEMENTS</a></li>
       <li class="menu__item"><a href="#">JOBS</a></li>
       <li class="menu__item"><a href="#">CONTACT</a></li>
     </ul>
