@@ -11,6 +11,7 @@ require __DIR__ . '/bootstrap.php';
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="src/assets/css/reset.css">
   <link rel="stylesheet" href="src/assets/css/style.css">
+  <link rel="shortcut icon" type="image/ico" href="/favicon.ico"/>
   <title>DiverCity</title>
  
   <!-- Framework css semantic UI-->

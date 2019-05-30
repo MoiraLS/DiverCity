@@ -16,17 +16,17 @@ if(isset($_POST['poster']))
     $publication->save();
     echo $publication->getContent();
     $alert = 'Votre post a été publié !';
-    header('Location: index.php?alert=' . $alert);
+    header('Location: actualites.php?alert=' . $alert);
     exit();
   } else
   {
     $alert = 'Vous devez être connecté pour pouvoir publier.';
-    header('Location: index.php?alert=' . $alert);
+    header('Location: actualites.php?alert=' . $alert);
     exit();
   }
 } else 
 {
   $alert = 'Formulaire non envoyé.';
-  header('Location: index.php?alert=' . $alert);
+  header('Location: actualites.php?alert=' . $alert);
   exit();
 }

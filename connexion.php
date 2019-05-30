@@ -13,7 +13,7 @@ if($_POST['email'] != NULL && $_POST['password'] != NULL)
   {
     $_SESSION['user'] = $user;
     $alert = 'Vous êtes bien connecté';
-    header('Location: index.php?alert=' . $alert);
+    header('Location: actualites.php?alert=' . $alert);
     exit();
   } else 
   {

@@ -6,11 +6,11 @@ if (isset($_POST['deconnecter']))
 {
   session_destroy();
   $alert = 'Vous êtes bien déconnecté !';
-  header('Location: index.php?alert=' . $alert);
+  header('Location: actualites.php?alert=' . $alert);
   exit();
 } else
 {
   $alert = 'Formulaire non envoyé';
-  header('Location: index.php?alert=' . $alert);
+  header('Location: actualites.php?alert=' . $alert);
   exit();
 }

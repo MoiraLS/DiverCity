@@ -29,7 +29,7 @@ if(isset($_POST['register']))
 
 <body>
 
-<a href="index.php"><img class="logo" src="src/assets/img/Logo.svg" alt="Logo Divercity"></a>
+<a href="actualites.php"><img class="logo" src="src/assets/img/Logo.svg" alt="Logo Divercity"></a>
 
 <form class="infos" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>"> 
     <h1 class="infos__title">S'INSCRIRE</h1>

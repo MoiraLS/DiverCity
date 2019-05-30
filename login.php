@@ -7,7 +7,7 @@ if(isset($_POST['login']))
   if ($user !== false) {
     if (password_verify($_POST['password'], $user->getPassword())) {
       $_SESSION['user_id'] = $user->getId();
-      header('Location: index.php');
+      header('Location: actualites.php');
     }
   }
 }
@@ -28,7 +28,7 @@ if(isset($_POST['login']))
 
 <body>
 
-<a href="index.php"><img class="logo" src="src/assets/img/Logo.svg" alt="Logo Divercity"></a>
+<a href="actualites.php"><img class="logo" src="src/assets/img/Logo.svg" alt="Logo Divercity"></a>
 <?php 
 if (isset($_GET['alert']))
 {
