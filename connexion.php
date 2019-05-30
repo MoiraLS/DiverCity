@@ -18,12 +18,12 @@ if($_POST['email'] != NULL && $_POST['password'] != NULL)
   } else 
   {
     $alert = 'Mot de passe incorrect';
-    header('Location: login.php?alert=' . $alert);
+    header('Location: index.php?alert=' . $alert);
     exit();
   } 
 } else
 {
   $alert = 'Remplissez les champs';
-  header('Location: login.php?alert=' . $alert);
+  header('Location: index.php?alert=' . $alert);
   exit();
 }

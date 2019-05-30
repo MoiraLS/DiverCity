@@ -13,16 +13,6 @@ require __DIR__ . '/bootstrap.php';
   <link rel="stylesheet" href="src/assets/css/style.css">
   <link rel="shortcut icon" type="image/ico" href="/favicon.ico"/>
   <title>DiverCity</title>
- 
-  <!-- Framework css semantic UI-->
-  <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
-  <script
-  src="https://code.jquery.com/jquery-3.1.1.min.js"
-  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-  crossorigin="anonymous"></script>
-  <script src="semantic/dist/semantic.min.js"></script>
-  <!-- Framework css semantic UI-->
-
 </head>
 
 <body>
@@ -53,8 +43,8 @@ require __DIR__ . '/bootstrap.php';
     } else
     {
       ?>
-      <div class="account"><a class="account--login" href="login.php">SE CONNECTER</a></div>
-      <div class="account account--creation"><a class="account--creation" href="signin.php">S'INSCRIRE</a></div>
+      <div class="account"><a class="account--login" href="index.php">SE CONNECTER</a></div>
+      <div class="account account--creation"><a class="account--creation" href="index.php">S'INSCRIRE</a></div>
     <?php
     }
     ?>
