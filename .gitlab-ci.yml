@@ -1,0 +1,17 @@
+image: php7
+
+before_script:
+- composer install
+
+
+services:
+- mysql
+
+variables:
+  MYSQL_DATABASE: divercity
+  MYSQL_ROOT_PASSWORD: root
+
+
+test:
+  script:
+  - composer test
