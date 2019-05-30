@@ -1,15 +1,9 @@
 version: 2.1
 
-before script:
-  - composer install
- 
-services:
-  - mysql
+orbs:
+  welcome: circleci/welcome-orb@0.3.1
 
-variables:
-  MYSQL_DATABASE: divercity
-  MYSQL_ROOT_PASSWORD: root
-  
-test:
-  script:
-    - composer divercity
+workflows:
+  Welcome:
+    jobs:
+      - welcome/run
