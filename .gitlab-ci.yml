@@ -1,5 +1,10 @@
 image: php7
 
+cache:
+  paths:
+  - vendor/
+
+
 before_script:
 - composer install
 
