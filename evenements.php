@@ -40,8 +40,8 @@ require __DIR__ . '/bootstrap.php';
       <input class="deco__button" type="submit" name="deconnecter" value='Déconnecter'>
     </form>
     <?php else: ?>
-    <div class="account"><a class="account--login" href="index.php">Se connecter</a></div>
-    <div class="account"><a class="account--creation" href="index.php">S'inscrire</a></div>
+    <div><a class="account account--login" href="index.php">Se connecter</a></div>
+    <div><a class="account account--creation" href="index.php">S'inscrire</a></div>
     <?php endif; ?>
 
     </div>
